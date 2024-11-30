@@ -97,3 +97,60 @@
     </footer>
   </body>
 </html>
+* { margin: 0; padding: 0; box-sizing: border-box; } /* Global Styles */ body {
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color:
+#f5f7fa; color: #333; line-height: 1.6; font-size: 16px; text-align: center; }
+/* Smooth Scrolling */ html { scroll-behavior: smooth; } /* Header and
+Navigation */ header { background: linear-gradient(135deg, #3498db, #2ecc71);
+padding: 1.5rem 0; color: white; position: sticky; top: 0; z-index: 100;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); } header nav ul { list-style: none;
+display: flex; justify-content: center; padding: 0; } header nav ul li { margin:
+0 1rem; } header nav ul li a { text-decoration: none; color: white; font-weight:
+600; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s
+ease; } header nav ul li a:hover { color: #ecf0f1; } /* Hero Section */ .hero {
+background: url('https://via.placeholder.com/1500x900') no-repeat center
+center/cover; color: white; padding: 8rem 1rem; text-align: center; } .hero h1 {
+font-size: 3rem; font-weight: 700; margin-bottom: 0.5rem; text-shadow: 2px 2px
+4px rgba(0, 0, 0, 0.7); } .hero p { font-size: 1.5rem; font-weight: 400;
+margin-top: 0.5rem; } /* About Section */ .about { padding: 6rem 2rem;
+background: white; color: #333; text-align: center; } .about h2 { font-size:
+2.5rem; margin-bottom: 1rem; font-weight: 600; color: #2c3e50; } .about p {
+font-size: 1.2rem; max-width: 800px; margin: 0 auto; color: #7f8c8d; } /*
+Projects Section */ .projects { padding: 6rem 2rem; background: #ecf0f1; color:
+#333; } .projects h2 { font-size: 2.5rem; font-weight: 600; margin-bottom: 2rem;
+color: #2c3e50; } .project-card { background: white; box-shadow: 0 8px 15px
+rgba(0, 0, 0, 0.1); padding: 2rem; margin: 1rem; border-radius: 8px; transition:
+transform 0.3s ease, box-shadow 0.3s ease; } .project-card:hover { transform:
+translateY(-10px); box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15); } .project-card
+h3 { font-size: 1.8rem; margin-bottom: 1rem; color: #3498db; } .project-card p {
+font-size: 1rem; color: #7f8c8d; margin-bottom: 1rem; } .project-card a {
+text-decoration: none; color: #3498db; font-weight: 500; font-size: 1.1rem;
+transition: color 0.3s ease; } .project-card a:hover { color: #2980b9; } /*
+Skills Section */ .skills { padding: 6rem 2rem; background: white; color: #333;
+} .skills h2 { font-size: 2.5rem; font-weight: 600; margin-bottom: 1.5rem;
+color: #2c3e50; } .skills ul { list-style: none; display: grid;
+grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 1rem;
+padding: 0; } .skills ul li { background: #3498db; color: white; padding: 1rem;
+font-size: 1.2rem; font-weight: 500; border-radius: 6px; text-align: center;
+transition: transform 0.3s ease; } .skills ul li:hover { transform:
+translateY(-5px); } /* Contact Section */ .contact { padding: 6rem 2rem;
+background: #ecf0f1; color: #333; } .contact h2 { font-size: 2.5rem;
+font-weight: 600; margin-bottom: 1.5rem; color: #2c3e50; } .contact form {
+max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap:
+1.2rem; } .contact form label { font-weight: 600; font-size: 1.1rem; color:
+#333; } .contact form input, .contact form textarea { padding: 1rem; font-size:
+1rem; border: 2px solid #ccc; border-radius: 6px; transition: border-color 0.3s
+ease; } .contact form input:focus, .contact form textarea:focus { border-color:
+#3498db; outline: none; } .contact form button { padding: 1rem; font-size:
+1.1rem; background-color: #3498db; color: white; border: none; border-radius:
+6px; cursor: pointer; transition: background-color 0.3s ease; } .contact form
+button:hover { background-color: #2980b9; } /* Footer */ footer {
+background-color: #333; color: white; text-align: center; padding: 1.5rem;
+margin-top: 3rem; } footer p { font-size: 1rem; color: #ccc; } /* Media Queries
+for Responsiveness */ @media screen and (max-width: 768px) { header nav ul {
+flex-direction: column; } .hero h1 { font-size: 2.5rem; } .about p, .projects
+h2, .skills h2, .contact h2 { font-size: 1.5rem; } .project-card { width: 100%;
+} .skills ul { grid-template-columns: 1fr 1fr; } } @media screen and (max-width:
+480px) { .hero h1 { font-size: 2rem; } .hero p { font-size: 1.2rem; } .about p,
+.projects h2, .skills h2, .contact h2 { font-size: 1.2rem; } .project-card {
+width: 100%; } .skills ul { grid-template-columns: 1fr; } }
