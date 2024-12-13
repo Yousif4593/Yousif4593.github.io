@@ -5,32 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Real-Time Leaderboard</title>
     <style>
-      body {
-        font-family: Arial, sans-serif;
-        padding: 20px;
-      }
-      #leaderboard {
-        margin-top: 20px;
-      }
-      ul {
-        list-style-type: none;
-        padding: 0;
-      }
-      li {
-        padding: 10px;
-        border-bottom: 1px solid #ddd;
-      }
-      button,
-      input {
-        padding: 10px;
-        margin-top: 10px;
-        font-size: 16px;
-      }
-      body {
-        background: linear-gradient(
-          rgba(255, 119, 0, 0.616),
-          rgba(255, 119, 0, 0.616)
-        );
+            body {
+              font-family: Arial, sans-serif;
+              padding: 20px;
+              text-align: center;
+            }
+            #leaderboard {
+              margin-top: 20px;
+            }
+            ul {
+              list-style-type: none;
+              padding: 0;
+            }
+            li {
+              padding: 10px;
+              border-bottom: 1px solid #ddd;
+            }
+            button,
+            input {
+              padding: 10px;
+              margin-top: 10px;
+              font-size: 16px;
+            }
+            button {
+              padding: 10px 20px;
+              background-color: rgba(46, 46, 201, 0.87);
+              color: white;
+              border: none;
+              border-radius: 12px;
+              cursor: pointer;
+              transition: background-color 0.3s ease;
+            }
+
+            button:hover {
+              background-color: rgb(27, 27, 143);
+            }
+            body {
+              animation: gradientAnimation 10s infinite;
+              );
+            }
+            input[type="text"] {
+              border: 2px solid black;
+              padding: 10px;
+              border-radius: 5px;
+            }
+            input[type="number"] {
+              border: 2px solid black;
+              padding: 10px;
+              border-radius: 5px;
+            }
+            h1:hover {
+              color: black;
+              cursor: pointer;
+            }
+            @keyframes gradientAnimation {
+        0% {
+          background: linear-gradient(to right, #ff7e5f, #feb47b);
+        }
+        50% {
+          background: linear-gradient(to right, #6a11cb, #2575fc);
+        }
+        100% {
+          background: linear-gradient(to right, #ff7e5f, #feb47b);
+        }
       }
     </style>
   </head>
@@ -43,7 +80,7 @@
     </div>
 
     <div>
-      <h3>Join Competition</h3>
+      <h3>Join The Competition</h3>
       <input type="text" id="userName" placeholder="Enter your name" />
       <button onclick="joinCompetition()">Join</button>
     </div>
@@ -51,7 +88,7 @@
     <div>
       <h3>Update Score</h3>
       <input type="number" id="newScore" placeholder="New Score" />
-      <button onclick="updateScore()">Update My Score</button>
+      <button onclick="updateScore()" class="button">Update My Score</button>
     </div>
 
     <!-- Firebase SDK -->
