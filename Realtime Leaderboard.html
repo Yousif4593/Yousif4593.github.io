@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Real-Time Leaderboard</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+      }
+      #leaderboard {
+        margin-top: 20px;
+      }
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+      li {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+      }
+      button,
+      input {
+        padding: 10px;
+        margin-top: 10px;
+        font-size: 16px;
+      }
+      body {
+        background: linear-gradient(
+          rgba(255, 119, 0, 0.616),
+          rgba(255, 119, 0, 0.616)
+        );
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Real-Time Leaderboard</h1>
+
+    <div id="leaderboard">
+      <h2>Leaderboard</h2>
+      <ul id="leaderboardList"></ul>
+    </div>
+
+    <div>
+      <h3>Join Competition</h3>
+      <input type="text" id="userName" placeholder="Enter your name" />
+      <button onclick="joinCompetition()">Join</button>
+    </div>
+
+    <div>
+      <h3>Update Score</h3>
+      <input type="number" id="newScore" placeholder="New Score" />
+      <button onclick="updateScore()">Update My Score</button>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js"></script>
+
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyDiwuWV5nGiQFtQdZW776bVegNuDaQ6cp8",
+        authDomain: "live-leaderboard-603d3.firebaseapp.com",
+        databaseURL:
+          "https://live-leaderboard-603d3-default-rtdb.firebaseio.com",
+        projectId: "live-leaderboard-603d3",
+        storageBucket: "live-leaderboard-603d3.firebasestorage.app",
+        messagingSenderId: "708491565418",
+        appId: "1:708491565418:web:88cd98bd5f62da7589ed13",
+        measurementId: "G-E4G34M56VX",
+      };
+
+      const app = firebase.initializeApp(firebaseConfig);
+      const db = firebase.database();
+
+      let userId = null;
+
+      function joinCompetition() {
+        const userName = document.getElementById("userName").value;
+        if (!userName) {
+          alert("Please enter a name to join.");
+          return;
+        }
+
+        userId = new Date().getTime().toString();
+
+        db.ref("competitions/competition_id_1/participants/" + userId).set({
+          name: userName,
+          score: 0,
+        });
+
+        document.getElementById("userName").value = "";
+        alert(`${userName} has joined the competition!`);
+        fetchLeaderboard();
+      }
+
+      function fetchLeaderboard() {
+        const leaderboardRef = db.ref(
+          "competitions/competition_id_1/participants"
+        );
+
+        leaderboardRef.on("value", (snapshot) => {
+          const data = snapshot.val();
+          let leaderboardHTML = "<ul>";
+          for (const id in data) {
+            leaderboardHTML += `<li>${data[id].name}: ${data[id].score}</li>`;
+          }
+          leaderboardHTML += "</ul>";
+          document.getElementById("leaderboardList").innerHTML =
+            leaderboardHTML;
+        });
+      }
+
+      function updateScore() {
+        if (!userId) {
+          alert("Please join the competition first.");
+          return;
+        }
+
+        const newScore = parseInt(document.getElementById("newScore").value);
+        if (isNaN(newScore) || newScore < 0) {
+          alert("Please enter a valid score.");
+          return;
+        }
+
+        const userRef = db.ref(
+          "competitions/competition_id_1/participants/" + userId
+        );
+        userRef.update({
+          score: newScore,
+        });
+
+        document.getElementById("newScore").value = "";
+        alert("Your score has been updated!");
+      }
+
+      fetchLeaderboard();
+    </script>
+  </body>
+</html>
