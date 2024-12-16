@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spotify Clone</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Header  -->
+    <header>
+      <div class="logo">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/1200px-Spotify_logo_without_text.svg.png"
+          alt="Spotify Logo"
+        />
+      </div>
+      <div class="search-bar">
+        <input
+          type="text"
+          placeholder="Search for artists, songs, or podcasts"
+        />
+      </div>
+      <div class="user">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOjy1LFP-EHTwtVJ48YpvLcW5cKXfP3dppgA&s"
+          alt="User Profile"
+          class="user-img"
+        />
+        <span>Yousif's collection</span>
+      </div>
+      <style>
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        body {
+          font-family: Arial, sans-serif;
+          background-color: #121212;
+          color: white;
+        }
+
+        h1,
+        h3 {
+          font-family: "Roboto", sans-serif;
+        }
+
+        header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 20px;
+          background-color: #181818;
+        }
+
+        header .logo img {
+          width: 100px;
+        }
+
+        header .search-bar input {
+          width: 500px;
+          padding: 10px;
+          background-color: #333;
+          border: none;
+          border-radius: 25px;
+          color: white;
+          font-size: 16px;
+        }
+
+        header .user {
+          display: flex;
+          align-items: center;
+        }
+
+        header .user img {
+          border-radius: 50%;
+          margin-right: 10px;
+        }
+
+        /* Sidebar */
+        .sidebar {
+          width: 250px;
+          background-color: #181818;
+          padding: 20px;
+          height: 100vh;
+        }
+
+        .sidebar ul {
+          list-style: none;
+        }
+
+        .sidebar ul li {
+          margin-bottom: 20px;
+          font-size: 18px;
+          cursor: pointer;
+        }
+
+        .sidebar ul li:hover {
+          color: #1db954;
+        }
+
+        /* Main  */
+        .main-content {
+          display: flex;
+          flex-grow: 1;
+        }
+
+        .playlist {
+          flex-grow: 1;
+          padding: 20px;
+        }
+
+        .playlist-header h1 {
+          font-size: 28px;
+          margin-bottom: 20px;
+        }
+
+        .playlist-items {
+          display: flex;
+          gap: 20px;
+        }
+
+        .playlist-item {
+          width: 150px;
+          text-align: center;
+        }
+
+        .playlist-item img {
+          width: 100%;
+          border-radius: 10px;
+        }
+
+        .playlist-item h3 {
+          font-size: 16px;
+          margin-top: 10px;
+        }
+
+        /* Footer  */
+        footer {
+          background-color: #181818;
+          padding: 10px;
+          text-align: center;
+          position: fixed;
+          bottom: 0;
+          width: 100%;
+        }
+
+        footer .footer-content {
+          font-size: 14px;
+          color: #b3b3b3;
+        }
+      </style>
+    </header>
+
+    <!-- Main Content Section -->
+    <div class="main-content">
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <ul>
+          <li>Home</li>
+          <li>Search</li>
+          <li>Your Library</li>
+          <li>Premium</li>
+          <li>Support</li>
+        </ul>
+      </div>
+
+      <!-- Playlist Section -->
+      <div class="playlist">
+        <div class="playlist-header">
+          <h1>Top Playlists</h1>
+        </div>
+        <div class="playlist-items">
+          <div class="playlist-item">
+            <img
+              src=" https://media.istockphoto.com/id/1431567498/vector/vector-illustration-of-musical-notes-on-white-background.jpg?s=612x612&w=0&k=20&c=E4Qx8E7OJm-itMPylpaZhNIU8mkJQt5XctWlKLLa1I8="
+              alt="Playlist"
+            />
+            <h3>Playlist 1</h3>
+          </div>
+          <div class="playlist-item">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLRYxw_RarDiPxQD9s5-wvSGSvQfAm-BUhMg&s"
+              alt="Playlist"
+            />
+            <h3>Playlist 2</h3>
+          </div>
+          <div class="playlist-item">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEiC-lTEcGvyIb-ik1TJJGhlMM6X-Ne0K8Tw&s"
+              alt="Playlist"
+            />
+            <h3>Playlist 3</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer 
+      -->
+    <footer>
+      <div class="footer-content">
+        <p>&copy; 2024 Spotify Clone | All Rights Reserved</p>
+      </div>
+    </footer>
+  </body>
+</html>
